@@ -1,0 +1,17 @@
+<ng-container *ngIf="isAuthenticated; else notAuthenticated">
+  <div class="user-container" [matMenuTriggerFor]="menu" *ngIf="user?.picture">
+    <img [src]="user.picture" class="user-picture" aria-label="Profile picture" />
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="signOut()" aria-label="Sign Out">
+      <mat-icon>logout</mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
+</ng-container>
+
+<ng-template #notAuthenticated>
+  <button mat-icon-button (click)="signIn()" aria-label="Sign In">
+    <mat-icon>login</mat-icon>
+  </button>
+</ng-template>
