@@ -1,0 +1,29 @@
+@use "@angular/material" as mat;
+
+// add base styles to material components
+@include mat.core();
+
+@import './helpers/variables';
+
+@import '@angular/material/theming';
+@import './themes/dark-theme.scss';
+@import './themes/light-theme.scss';
+
+// default theme
+@include mat.all-component-themes($dark-theme);
+
+.light-mode {
+  @include mat.icon-button-color($light-theme);
+  @include mat.core-color($light-theme);
+  @include mat.button-color($light-theme);
+  @include mat.fab-color($light-theme);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: $montserrat, "Helvetica Neue", sans-serif;
+}
